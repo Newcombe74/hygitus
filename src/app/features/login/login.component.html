@@ -1,0 +1,67 @@
+<div class="page-container">
+  <mat-card
+    ><div class="container">
+      <h1 class="title">Login</h1>
+      <form class="form">
+        <div class="email">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="pat@example.com"
+              [formControl]="emailCtrl"
+              required
+            />
+            <mat-error *ngIf="emailCtrl.invalid">{{
+              getEmailErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="password">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              [formControl]="passwordCtrl"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hidePassword = !hidePassword"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hidePassword"
+            >
+              <mat-icon>{{
+                hidePassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </form>
+      <p *ngIf="loginFailed" style="color: red">
+        Login failed, please check your email and password.
+      </p>
+
+      <div class="buttons">
+        <button
+          class="register"
+          mat-raised-button
+          color="accent"
+          routerLink="/register"
+        >
+          Register
+        </button>
+        <button
+          class="login"
+          mat-raised-button
+          color="primary"
+          (click)="attemptLogin()"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

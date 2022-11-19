@@ -1,0 +1,57 @@
+.page-container {
+  background-color: white;
+}
+
+h1 {
+  font: bold 6em Helvetica, sans-serif;
+  padding-top: 15%;
+  padding-left: 0.5em;
+  padding-bottom: 0;
+}
+
+p {
+  font: bold 1.5em Helvetica, sans-serif;
+  padding-top: 0.5em;
+  padding-left: 2.5em;
+  width: 60%;
+  font-weight: 300;
+}
+
+#col-1 {
+  width: 50%;
+  z-index: 5;
+}
+
+#col-2 {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  //border: solid red;
+}
+
+.home-logo {
+  display: flex;
+  max-width: 100%;
+  z-index: 1;
+}
+
+.get-started-button {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  width: 8em;
+  margin-left: 0.9em;
+  margin-top: 1em;
+  height: 2.25em;
+  font-weight: 575;
+  font-size: 4em;
+  //text-align: justify;
+  //border: solid red;
+}

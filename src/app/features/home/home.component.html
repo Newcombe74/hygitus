@@ -1,0 +1,38 @@
+<div class="page-container">
+  <div class="container">
+    <section id="col-1">
+      <h1>Impact healthcare like never before</h1>
+      <p>
+        Hygitus provides all the tools you need to improve your investing impact
+        on the Canadian healthcare industry
+      </p>
+      <div>
+        <button
+          class="get-started-button"
+          mat-raised-button
+          color="primary"
+          *ngIf="!currentUser"
+          routerLink="/login"
+        >
+          Get Started
+        </button>
+        <button
+          class="get-started-button"
+          mat-raised-button
+          color="primary"
+          *ngIf="currentUser"
+          routerLink="/resources"
+        >
+          Get Started
+        </button>
+      </div>
+    </section>
+    <section id="col-2">
+      <img
+        class="home-logo"
+        src="../../../assets/homepage-backround.png"
+        alt="Home Page Picture"
+      />
+    </section>
+  </div>
+</div>

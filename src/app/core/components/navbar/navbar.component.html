@@ -1,0 +1,77 @@
+<mat-toolbar color="primary" class="mat-elevation-z5 navbar">
+  <mat-toolbar-row>
+    <span
+      ><a routerLink="/"
+        ><img
+          class="nav-logo"
+          src="../../../../assets/hygitus-banner-logo.png"
+          alt="Hygitus Logo" /></a
+    ></span>
+    <span class="spacer"></span>
+    <button
+      class="nav-button"
+      *ngIf="isDevMode"
+      mat-flat-button
+      color="accent"
+      (click)="resetDB()"
+    >
+      Reset DB
+    </button>
+    <span class="welcome-message" *ngIf="currentUser"
+      >Welcome {{ currentUser.firstName }}</span
+    >
+    <button
+      class="nav-button"
+      *ngIf="!currentUser"
+      mat-flat-button
+      color="primary"
+      routerLink="/login"
+    >
+      Login
+    </button>
+    <button
+      class="nav-button"
+      *ngIf="currentUser"
+      mat-flat-button
+      color="primary"
+      routerLink="/user-account"
+    >
+      Profile
+    </button>
+    <button
+      class="nav-button"
+      *ngIf="currentUser"
+      mat-flat-button
+      color="primary"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+    <button
+      class="nav-button"
+      mat-flat-button
+      color="primary"
+      routerLink="/resources"
+    >
+      Resources
+    </button>
+    <button
+      class="nav-button"
+      mat-icon-button
+      matTooltip="About"
+      aria-label="Info"
+      routerLink="/about"
+    >
+      <mat-icon>info</mat-icon>
+    </button>
+    <button
+      class="nav-button"
+      mat-icon-button
+      matTooltip="Cyber Security"
+      aria-label="Cyber Security"
+      routerLink="/cyber-security"
+    >
+      <mat-icon>shield</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

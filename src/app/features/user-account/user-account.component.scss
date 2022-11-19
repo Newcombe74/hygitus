@@ -1,0 +1,52 @@
+.updates-buttons-container {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.fab-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+h1 {
+  color: #162b66;
+  font: bold 4em Helvetica, sans-serif;
+  margin-right: 35%;
+  margin-left: 35%;
+  padding-top: 0.5em;
+}
+
+mat-card {
+  width: 80%;
+  margin: 50px auto auto auto;
+}
+
+.userForms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  mat-form-field {
+    width: 40%;
+  }
+
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 1em;
+}
+
+.firstName,
+.lastName,
+.dob,
+.sex,
+.email,
+.phoneNumber,
+.addressLineOne,
+.addressLineTwo,
+.fullName {
+  margin-right: 1em;
+}
