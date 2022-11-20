@@ -14,9 +14,6 @@ export interface User {
   addressLineTwo?: string;
   postcode?: string;
 
-  enviroScore: number;
-  socialScore: number;
-  governScore: number;
   private: boolean;
   notifications: boolean;
   newsletter: boolean;
@@ -49,9 +46,6 @@ export class AppDB extends Dexie {
       addressLineOne: '208-1078 Tower Road',
       addressLineTwo: 'Halifax',
       postcode: 'B3H2Y5',
-      enviroScore: 5,
-      socialScore: 5,
-      governScore: 5,
       private: false,
       notifications: true,
       newsletter: true

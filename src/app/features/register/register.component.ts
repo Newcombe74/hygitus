@@ -22,7 +22,6 @@ import { User } from 'src/db/db';
 export class RegisterComponent {
   personalInfoFormGroup!: FormGroup;
   contactInfoFormGroup!: FormGroup;
-  preferencesFormGroup!: FormGroup;
   passwordFormGroup!: FormGroup;
 
   hidePassword = true;
@@ -50,12 +49,6 @@ export class RegisterComponent {
       addressLineTwoCtrl: [''],
       postcodeCtrl: [''],
     });
-    this.preferencesFormGroup = this._formBuilder.group({
-      enviroScoreCtrl: [5, Validators.required],
-      socialScoreCtrl: [5, Validators.required],
-      governScoreCtrl: [5, Validators.required],
-      newsletterCtrl: [true, Validators.required],
-    });
     this.passwordFormGroup = this._formBuilder.group(
       {
         passwordCtrl: ['', Validators.required],
@@ -69,7 +62,6 @@ export class RegisterComponent {
     // Populate user object
     let personalInfoCtrls = this.personalInfoFormGroup.controls;
     let contactInfoCtrls = this.contactInfoFormGroup.controls;
-    let preferencesCtrls = this.preferencesFormGroup.controls;
     let user: User;
     user = {
       firstName: personalInfoCtrls['firstNameCtrl'].value,
@@ -83,12 +75,9 @@ export class RegisterComponent {
       addressLineTwo: contactInfoCtrls['addressLineTwoCtrl'].value,
       postcode: contactInfoCtrls['postcodeCtrl'].value,
 
-      enviroScore: preferencesCtrls['enviroScoreCtrl'].value,
-      socialScore: preferencesCtrls['socialScoreCtrl'].value,
-      governScore: preferencesCtrls['governScoreCtrl'].value,
       private: false,
       notifications: true,
-      newsletter: preferencesCtrls['newsletterCtrl'].value,
+      newsletter: true,
 
       password: this.passwordFormGroup.controls['passwordCtrl'].value,
     };

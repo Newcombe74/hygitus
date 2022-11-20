@@ -40,11 +40,7 @@
 
           <mat-form-field hintLabel="Max 50 characters" appearance="fill">
             <mat-label>Organization</mat-label>
-            <input
-              matInput
-              formControlName="organizationCtrl"
-              maxlength="50"
-            />
+            <input matInput formControlName="organizationCtrl" maxlength="50" />
           </mat-form-field>
 
           <div>
@@ -74,7 +70,6 @@
             <input
               matInput
               formControlName="phoneNumberCtrl"
-              required
               minlength="10"
               maxlength="10"
               [OnlyNumber]="true"
@@ -90,7 +85,6 @@
               formControlName="addressLineOneCtrl"
               maxlength="40"
               placeholder="Ex. 1 Spring Garden Road"
-              required
             />
             <mat-hint align="end"
               >{{ addressLineOneInput.value?.length || 0 }}/40</mat-hint
@@ -105,7 +99,6 @@
               formControlName="addressLineTwoCtrl"
               maxlength="20"
               placeholder="Ex. Halifax"
-              required
             />
             <mat-hint align="end"
               >{{ addressLineTwoInput.value?.length || 0 }}/20</mat-hint
@@ -120,20 +113,8 @@
               placeholder="Ex. B3H1A1"
               minlength="6"
               maxlength="6"
-              required
             />
           </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-
-      <mat-step [stepControl]="preferencesFormGroup">
-        <form [formGroup]="preferencesFormGroup" class="registerForm">
-          <ng-template matStepLabel>Your Preferences</ng-template>
-
 
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -151,6 +132,7 @@
               matInput
               [type]="hidePassword ? 'password' : 'text'"
               formControlName="passwordCtrl"
+              autocomplete="new-password"
               required
             />
             <button
@@ -171,6 +153,7 @@
               matInput
               [type]="hideConfirmPassword ? 'password' : 'text'"
               formControlName="passwordConfirmCtrl"
+              autocomplete="false"
               [errorStateMatcher]="matcher"
             />
             <button
@@ -197,7 +180,8 @@
 
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
+        <p><strong>You are now done!</strong></p>
+        <p>You may review your information from previous steps before submitting.</p>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="stepper.reset()">Reset</button>
