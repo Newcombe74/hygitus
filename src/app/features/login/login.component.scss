@@ -1,19 +1,17 @@
 h1 {
-	font: bold 4em Helvetica, sans-serif;
+  font: bold 4em Helvetica, sans-serif;
   padding-left: 1em;
   padding-top: 0.5em;
-  //border: solid red;
   text-align: left;
 }
 
 .title {
-  //height: 20em;
   text-align: left;
 }
 
 .container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+  margin-left: 8px;
+}
 
 .container {
   //border: solid red;

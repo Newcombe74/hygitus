@@ -1,4 +1,27 @@
-mat-card {
+.container-card {
   width: 80%;
   margin: 50px auto auto auto;
+}
+
+a {
+  text-decoration: none;
+}
+.ripple-container {
+  cursor: pointer;
+  width: 100%;
+  height: 80%;
+  margin: 2em 2em 2em 2em;
+}
+.grid-card {
+  width: 100%;
+  height: 100%;
+  background-color: #0288d1;
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+  mat-card-title {
+    margin-top: 10%;
+    font-size:xx-large;
+  }
 }
