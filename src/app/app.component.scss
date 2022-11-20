@@ -1,0 +1,28 @@
+.draw-container {
+  width: 100%;
+}
+
+app-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 80px;
+  padding: 0px 60px 0px 60px;
+  width: 500px;
+}
+
+mat-drawer-container {
+  height: 100% !important;
+}
+
+mat-drawer-content {
+  margin-top: 20px;
+}
+
+.message-fab {
+  top: auto !important;
+  right: 20px !important;
+  bottom: 10px !important;
+  left: auto !important;
+  position: fixed !important;
+}

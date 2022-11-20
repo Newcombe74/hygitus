@@ -1,0 +1,37 @@
+<h1>Chat</h1>
+
+<div class="chat-recipient">
+  <img src="../../../../assets/conor-profile-picture.png" style="width: 80px" />
+  <label for="nameField">{{chatRecipient}}</label>
+</div>
+
+<div *ngFor="let message of messages" class="msg-container">
+  <div
+    class="message"
+    [ngClass]="{
+      from: message.author === 'bot',
+      to: message.author === 'user'
+    }"
+  >
+    {{ message.content }}
+  </div>
+</div>
+
+<mat-form-field appearance="outline" style="width: 100%">
+  <mat-label>Message</mat-label>
+  <input
+    matInput
+    [(ngModel)]="value"
+    (keyup.enter)="sendMessage()"
+    type="text"
+    maxlength="250"
+  />
+</mat-form-field>
+<button
+  mat-flat-button
+  color="primary"
+  (click)="sendMessage()"
+  style="margin-top: 10px"
+>
+  Send
+</button>

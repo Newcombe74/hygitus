@@ -27,9 +27,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatService } from './services/chat.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [NavbarComponent, PageNotFoundComponent],
+  declarations: [NavbarComponent, PageNotFoundComponent, ChatComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,10 +41,13 @@ import { MatRippleModule } from '@angular/material/core';
     MatButtonModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    MatInputModule,
   ],
   exports: [
     NavbarComponent,
+    ChatComponent,
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
@@ -63,8 +69,9 @@ import { MatRippleModule } from '@angular/material/core';
     MatProgressBarModule,
     MatCheckboxModule,
     MatRippleModule,
+    MatSidenavModule,
   ],
-  providers: [AppDBService, ToastService],
+  providers: [AppDBService, ToastService, ChatService],
   bootstrap: [NavbarComponent],
 })
 export class CoreModule {

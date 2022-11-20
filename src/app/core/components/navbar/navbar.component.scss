@@ -4,9 +4,12 @@
   z-index: 100;
   margin-bottom: 64px;
   height: 80px;
+
+  mat-toolbar-row {
+    height: 80px;
+  }
 }
 .nav-logo {
-  margin-top: 15px;
   height: 80px;
   display: flex;
 }
