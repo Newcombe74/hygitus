@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    width: 65em;
+    flex-direction: column;
+    height: 25em;
+    margin: auto;
+    padding-top: 100px;
+  }
+
+h1 {
+  font: bold 4em Helvetica, sans-serif;
+  padding-left: 1em;
+  padding-top: 0.5em;
+  text-align: center;
+}
