@@ -16,17 +16,43 @@ import { ToastComponent } from './shared/components/toast/toast.component';
 import { ToastService } from './shared/services/toast.service';
 import { UserAccountComponent } from './features/user-account/user-account.component';
 import { CyberSecurityComponent } from './features/cyber-security/cyber-security.component';
+import { ImpactDataComponent } from './features/impact-data/impact-data.component';
+import { BackgroundCheckingComponent } from './features/background-checking/background-checking.component';
+import { BankingComponent } from './features/banking/ibanking.component';
+import { CapitalRaisingComponent } from './features/capital-raising/capital-raising.component';
+import { EContractsComponent } from './features/e-contracts/e-contracts.component';
+import { KnowledgeHubComponent } from './features/knowledge-hub/knowledge-hub.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent, CyberSecurityComponent, ResourcesComponent, 
-    LoginComponent, RegisterComponent, UserAccountComponent, OnlyNumber, ToastComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    CyberSecurityComponent,
+    ResourcesComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserAccountComponent,
+    BackgroundCheckingComponent,
+    BankingComponent,
+    CapitalRaisingComponent,
+    EContractsComponent,
+    KnowledgeHubComponent,
+    ImpactDataComponent,
+    OnlyNumber,
+    ToastComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
   ],
-  providers: [AppDBService, ToastService, {provide: MAT_DATE_LOCALE, useValue: 'en-US'}],
+  providers: [
+    AppDBService,
+    ToastService,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
