@@ -10,7 +10,7 @@ import { ResourcesComponent } from './features/resources/resources.component';
 import { UserAccountComponent } from './features/user-account/user-account.component';
 import { ImpactDataComponent } from './features/impact-data/impact-data.component';
 import { BackgroundCheckingComponent } from './features/background-checking/background-checking.component';
-import { BankingComponent } from './features/banking/ibanking.component';
+import { BankingComponent } from './features/banking/banking.component';
 import { CapitalRaisingComponent } from './features/capital-raising/capital-raising.component';
 import { EContractsComponent } from './features/e-contracts/e-contracts.component';
 import { KnowledgeHubComponent } from './features/knowledge-hub/knowledge-hub.component';
