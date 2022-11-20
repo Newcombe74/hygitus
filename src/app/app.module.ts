@@ -22,6 +22,7 @@ import { BankingComponent } from './features/banking/banking.component';
 import { CapitalRaisingComponent } from './features/capital-raising/capital-raising.component';
 import { EContractsComponent } from './features/e-contracts/e-contracts.component';
 import { KnowledgeHubComponent } from './features/knowledge-hub/knowledge-hub.component';
+import { TableauModule } from 'ngx-tableau';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { KnowledgeHubComponent } from './features/knowledge-hub/knowledge-hub.co
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule,
+    CoreModule, 
+    TableauModule
   ],
   providers: [
     AppDBService,
