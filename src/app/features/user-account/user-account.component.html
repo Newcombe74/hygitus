@@ -1,65 +1,102 @@
 <div class="page-container">
   <mat-card>
-    <h1>Your Account</h1>
+    <h1 style="text-align: center">Your Profile</h1>
     <mat-tab-group *ngIf="currentUser" mat-align-tabs="center">
-      <mat-tab label="Personal Information" #personalInfoTab [disabled]="!personalInfoTab.isActive && isEditing">
+      <mat-tab
+        label="Personal Information"
+        #personalInfoTab
+        [disabled]="!personalInfoTab.isActive && isEditing"
+      >
         <form [formGroup]="personalInfoFormGroup" class="userForms">
           <div>
-            <mat-form-field hintLabel="Max 20 characters" appearance="fill" class="firstName">
+            <mat-form-field
+              hintLabel="Max 20 characters"
+              appearance="fill"
+              class="firstName"
+            >
               <mat-label>First Name</mat-label>
-              <input matInput #firstNameInput placeholder="First name" formControlName="firstNameCtrl" maxlength="20"
-                required />
-              <mat-hint align="end">{{ firstNameInput.value?.length || 0 }}/20</mat-hint>
+              <input
+                matInput
+                #firstNameInput
+                placeholder="First name"
+                formControlName="firstNameCtrl"
+                maxlength="20"
+                required
+              />
+              <mat-hint align="end"
+                >{{ firstNameInput.value?.length || 0 }}/20</mat-hint
+              >
             </mat-form-field>
 
-            <mat-form-field hintLabel="Max 20 characters" appearance="fill" class="lastName">
+            <mat-form-field
+              hintLabel="Max 20 characters"
+              appearance="fill"
+              class="lastName"
+            >
               <mat-label>Last Name</mat-label>
-              <input matInput #lastNameInput placeholder="Last name" formControlName="lastNameCtrl" maxlength="20"
-                required />
-              <mat-hint align="end">{{ lastNameInput.value?.length || 0 }}/20</mat-hint>
+              <input
+                matInput
+                #lastNameInput
+                placeholder="Last name"
+                formControlName="lastNameCtrl"
+                maxlength="20"
+                required
+              />
+              <mat-hint align="end"
+                >{{ lastNameInput.value?.length || 0 }}/20</mat-hint
+              >
             </mat-form-field>
           </div>
 
-          <mat-form-field appearance="fill" class="dob">
-            <mat-label>Date of Birth</mat-label>
-            <input matInput [matDatepicker]="picker" [min]="minDOBDate" [max]="maxDOBDate" formControlName="dobCtrl" />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+          <mat-form-field hintLabel="Max 50 characters" appearance="fill">
+            <mat-label>Organization</mat-label>
+            <input matInput formControlName="organizationCtrl" maxlength="50" />
           </mat-form-field>
 
-          <mat-form-field appearance="fill" class="sex">
-            <mat-label>Sex</mat-label>
-            <mat-select formControlName="sexCtrl" [disabled]="personalInfoFormGroup.controls['sexCtrl'].disabled"
-              required>
-              <mat-option *ngFor="let sex of sexes" [value]="sex.value">
-                {{ sex.viewValue }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field hintLabel="Must be 10 digits" appearance="fill">
-            <mat-label>Health Card Number</mat-label>
-            <input matInput formControlName="healthCardNumberCtrl" required minlength="10" maxlength="10"
-              [OnlyNumber]="true" />
+          <mat-form-field hintLabel="Max 250 characters" appearance="fill">
+            <mat-label>Bio</mat-label>
+            <textarea
+              maxlength="250"
+              matInput
+              formControlName="bioCtrl"
+              placeholder="Ex. I am an impact investor focused on the healthcare industry..."
+            ></textarea>
           </mat-form-field>
 
           <div class="updates-buttons-container">
             <div *ngIf="isEditing" class="fab-button-container">
-              <button mat-fab color="primary" matTooltip="Submit Update" (click)="submitUpdate()"
-                [disabled]="!personalInfoFormGroup.dirty || !personalInfoFormGroup.valid"
-                aria-label="Submit user information update button">
+              <button
+                mat-fab
+                color="primary"
+                matTooltip="Submit Update"
+                (click)="submitUpdate()"
+                [disabled]="
+                  !personalInfoFormGroup.dirty || !personalInfoFormGroup.valid
+                "
+                aria-label="Submit user information update button"
+              >
                 <mat-icon>done</mat-icon>
               </button>
             </div>
             <div *ngIf="!isEditing" class="fab-button-container">
-              <button mat-fab color="accent" matTooltip="Edit Profile" (click)="enableEditing()"
-                aria-label="Edit user information button">
+              <button
+                mat-fab
+                color="accent"
+                matTooltip="Edit Profile"
+                (click)="enableEditing()"
+                aria-label="Edit user information button"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
             <div *ngIf="isEditing" class="fab-button-container">
-              <button mat-fab color="warn" matTooltip="Cancel" (click)="cancelEditing()"
-                aria-label="Cancel user information update button">
+              <button
+                mat-fab
+                color="warn"
+                matTooltip="Cancel"
+                (click)="cancelEditing()"
+                aria-label="Cancel user information update button"
+              >
                 <mat-icon>close</mat-icon>
               </button>
             </div>
@@ -67,59 +104,125 @@
         </form>
       </mat-tab>
 
-      <mat-tab label="Contact Information" #contactInfoTab [disabled]="!contactInfoTab.isActive && isEditing">
+      <mat-tab
+        label="Contact Information"
+        #contactInfoTab
+        [disabled]="!contactInfoTab.isActive && isEditing"
+      >
         <form [formGroup]="contactInfoFormGroup" class="userForms">
           <mat-form-field appearance="fill" class="email">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="Ex. pat@example.ca" formControlName="emailCtrl" required />
+            <input
+              matInput
+              placeholder="Ex. pat@example.ca"
+              formControlName="emailCtrl"
+              required
+            />
             <mat-error>{{ getEmailErrorMessage() }}</mat-error>
           </mat-form-field>
 
-          <mat-form-field hintLabel="Must be 10 digits" appearance="fill" class="phoneNumber">
+          <mat-form-field
+            hintLabel="Must be 10 digits"
+            appearance="fill"
+            class="phoneNumber"
+          >
             <mat-label>Phone Number</mat-label>
             <span matPrefix>+1 &nbsp;</span>
-            <input matInput formControlName="phoneNumberCtrl" required minlength="10" maxlength="10"
-              [OnlyNumber]="true" />
+            <input
+              matInput
+              formControlName="phoneNumberCtrl"
+              required
+              minlength="10"
+              maxlength="10"
+              [OnlyNumber]="true"
+            />
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
-          <mat-form-field hintLabel="Max 40 characters" appearance="fill" class="addressLineOne">
+          <mat-form-field
+            hintLabel="Max 40 characters"
+            appearance="fill"
+            class="addressLineOne"
+          >
             <mat-label>Address Line One</mat-label>
-            <input matInput #addressLineOneInput formControlName="addressLineOneCtrl" maxlength="40"
-              placeholder="Ex. 1 Spring Garden Road" required />
-            <mat-hint align="end">{{ addressLineOneInput.value?.length || 0 }}/40</mat-hint>
+            <input
+              matInput
+              #addressLineOneInput
+              formControlName="addressLineOneCtrl"
+              maxlength="40"
+              placeholder="Ex. 1 Spring Garden Road"
+              required
+            />
+            <mat-hint align="end"
+              >{{ addressLineOneInput.value?.length || 0 }}/40</mat-hint
+            >
           </mat-form-field>
 
-          <mat-form-field hintLabel="Max 20 characters" appearance="fill" class="addressLineTwo">
+          <mat-form-field
+            hintLabel="Max 20 characters"
+            appearance="fill"
+            class="addressLineTwo"
+          >
             <mat-label>Address Line Two</mat-label>
-            <input matInput #addressLineTwoInput formControlName="addressLineTwoCtrl" maxlength="20"
-              placeholder="Ex. Halifax" required />
-            <mat-hint align="end">{{ addressLineTwoInput.value?.length || 0 }}/20</mat-hint>
+            <input
+              matInput
+              #addressLineTwoInput
+              formControlName="addressLineTwoCtrl"
+              maxlength="20"
+              placeholder="Ex. Halifax"
+              required
+            />
+            <mat-hint align="end"
+              >{{ addressLineTwoInput.value?.length || 0 }}/20</mat-hint
+            >
           </mat-form-field>
 
           <mat-form-field hintLabel="Must be 6 characters" appearance="fill">
             <mat-label>Postcode</mat-label>
-            <input matInput formControlName="postcodeCtrl" placeholder="Ex. B3H1A1" minlength="6" maxlength="6"
-              required />
+            <input
+              matInput
+              formControlName="postcodeCtrl"
+              placeholder="Ex. B3H1A1"
+              minlength="6"
+              maxlength="6"
+              required
+            />
           </mat-form-field>
 
           <div class="updates-buttons-container">
             <div *ngIf="isEditing" class="fab-button-container">
-              <button mat-fab color="primary" matTooltip="Submit Update" (click)="submitUpdate()"
-                [disabled]="!contactInfoFormGroup.dirty || !contactInfoFormGroup.valid"
-                aria-label="Submit user information update button">
+              <button
+                mat-fab
+                color="primary"
+                matTooltip="Submit Update"
+                (click)="submitUpdate()"
+                [disabled]="
+                  !contactInfoFormGroup.dirty || !contactInfoFormGroup.valid
+                "
+                aria-label="Submit user information update button"
+              >
                 <mat-icon>done</mat-icon>
               </button>
             </div>
             <div *ngIf="!isEditing" class="fab-button-container">
-              <button mat-fab color="accent" matTooltip="Edit Profile" (click)="enableEditing()"
-                aria-label="Edit user information button">
+              <button
+                mat-fab
+                color="accent"
+                matTooltip="Edit Profile"
+                (click)="enableEditing()"
+                aria-label="Edit user information button"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
             <div *ngIf="isEditing" class="fab-button-container">
-              <button mat-fab color="warn" matTooltip="Cancel" (click)="cancelEditing()"
-                aria-label="Cancel user information update button">
+              <button
+                mat-fab
+                color="warn"
+                matTooltip="Cancel"
+                (click)="cancelEditing()"
+                aria-label="Cancel user information update button"
+              >
                 <mat-icon>close</mat-icon>
               </button>
             </div>
@@ -127,40 +230,68 @@
         </form>
       </mat-tab>
 
-      <mat-tab label="Emergency Contact Information" #emergInfoTab [disabled]="!emergInfoTab.isActive && isEditing">
+      <mat-tab
+        label="Preferences"
+        #preferencesTab
+        [disabled]="!preferencesTab.isActive && isEditing"
+      >
         <form [formGroup]="preferencesFormGroup" class="userForms">
-          <mat-form-field hintLabel="Max 40 characters" appearance="fill" class="fullName">
-            <mat-label>Full Name</mat-label>
-            <input matInput #emergFullNameInput placeholder="Full name" formControlName="emergNameCtrl" maxlength="40"
-              required />
-            <mat-hint align="end">{{ emergFullNameInput.value?.length || 0 }}/40</mat-hint>
-          </mat-form-field>
+          <mat-checkbox
+            formControlName="privateCtrl"
+            labelPosition="before"
+            matTooltip="When checked your account cannot be seen by other users"
+            >Private Account</mat-checkbox
+          >
 
-          <mat-form-field hintLabel="Must be 10 digits" appearance="fill">
-            <mat-label>Phone Number</mat-label>
-            <span matPrefix>+1 &nbsp;</span>
-            <input matInput formControlName="emergPhoneNumberCtrl" minlength="10" maxlength="10" required
-              [OnlyNumber]="true" />
-            <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field>
+          <mat-checkbox
+            formControlName="notificationsCtrl"
+            labelPosition="before"
+            matTooltip="When checked you will receive notifications when messaged by other users"
+            >Receive Notifications</mat-checkbox
+          >
+
+          <mat-checkbox
+            formControlName="notificationsCtrl"
+            labelPosition="before"
+            matTooltip="When checked you will receive newsletters from Hygytus"
+            >Receive Newsletters</mat-checkbox
+          >
 
           <div class="updates-buttons-container">
             <div *ngIf="isEditing" class="fab-button-container">
-              <button mat-fab color="primary" matTooltip="Submit Update" (click)="submitUpdate()"
-                [disabled]="!preferencesFormGroup.dirty || !preferencesFormGroup.valid"
-                aria-label="Submit user information update button">
+              <button
+                mat-fab
+                color="primary"
+                matTooltip="Submit Update"
+                (click)="submitUpdate()"
+                [disabled]="
+                  !preferencesFormGroup.dirty || !preferencesFormGroup.valid
+                "
+                aria-label="Submit user information update button"
+              >
                 <mat-icon>done</mat-icon>
               </button>
             </div>
+
             <div *ngIf="!isEditing" class="fab-button-container">
-              <button mat-fab color="accent" matTooltip="Edit Profile" (click)="enableEditing()"
-                aria-label="Edit user information button">
+              <button
+                mat-fab
+                color="accent"
+                matTooltip="Edit Profile"
+                (click)="enableEditing()"
+                aria-label="Edit user information button"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
             <div *ngIf="isEditing" class="fab-button-container">
-              <button mat-fab color="warn" matTooltip="Cancel" (click)="cancelEditing()"
-                aria-label="Cancel user information update button">
+              <button
+                mat-fab
+                color="warn"
+                matTooltip="Cancel"
+                (click)="cancelEditing()"
+                aria-label="Cancel user information update button"
+              >
                 <mat-icon>close</mat-icon>
               </button>
             </div>
@@ -172,35 +303,64 @@
         <form [formGroup]="passwordFormGroup" class="userForms">
           <mat-form-field appearance="fill">
             <mat-label>Enter current password</mat-label>
-            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="passwordOldCtrl" required />
-            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hidePassword">
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              formControlName="passwordOldCtrl"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hidePassword = !hidePassword"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hidePassword"
+            >
               <mat-icon>{{
                 hidePassword ? "visibility_off" : "visibility"
-                }}</mat-icon>
+              }}</mat-icon>
             </button>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
             <mat-label>Enter new password</mat-label>
-            <input matInput [type]="hideNewPassword ? 'password' : 'text'" formControlName="passwordCtrl" required />
-            <button mat-icon-button matSuffix (click)="hideNewPassword = !hideNewPassword"
-              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideNewPassword">
+            <input
+              matInput
+              [type]="hideNewPassword ? 'password' : 'text'"
+              formControlName="passwordCtrl"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hideNewPassword = !hideNewPassword"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hideNewPassword"
+            >
               <mat-icon>{{
                 hideNewPassword ? "visibility_off" : "visibility"
-                }}</mat-icon>
+              }}</mat-icon>
             </button>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
             <mat-label>Confirm password</mat-label>
-            <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="passwordConfirmCtrl"
-              [errorStateMatcher]="matcher" />
-            <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
-              [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
+            <input
+              matInput
+              [type]="hideConfirmPassword ? 'password' : 'text'"
+              formControlName="passwordConfirmCtrl"
+              [errorStateMatcher]="matcher"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hideConfirmPassword = !hideConfirmPassword"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hideConfirmPassword"
+            >
               <mat-icon>{{
                 hideConfirmPassword ? "visibility_off" : "visibility"
-                }}</mat-icon>
+              }}</mat-icon>
             </button>
             <mat-error *ngIf="passwordFormGroup.hasError('notSame')">
               Passwords do not match
@@ -211,8 +371,14 @@
           </p>
 
           <div>
-            <button mat-raised-button color="accent" [disabled]="!passwordFormGroup.valid"
-              (click)="attemptUpdatePassword()">Update</button>
+            <button
+              mat-raised-button
+              color="accent"
+              [disabled]="!passwordFormGroup.valid"
+              (click)="attemptUpdatePassword()"
+            >
+              Update
+            </button>
           </div>
         </form>
       </mat-tab>

@@ -17,22 +17,49 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AppDBService } from './services/db.service';
 import { ToastService } from '../shared/services/toast.service';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule, MatToolbarModule, MatIconModule, MatButtonModule,
-    MatTooltipModule, MatFormFieldModule],
-  exports: [NavbarComponent, MatIconModule, MatButtonModule, MatTooltipModule, MatFormFieldModule,
-    FormsModule, ReactiveFormsModule, MatInputModule, MatCardModule, MatStepperModule,
-    MatDatepickerModule, MatSelectModule, MatNativeDateModule, MatSnackBarModule, MatTabsModule,
-    MatChipsModule, MatAutocompleteModule, MatProgressSpinnerModule, MatGridListModule, MatProgressBarModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+  ],
+  exports: [
+    NavbarComponent,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
+    MatTabsModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatProgressBarModule,
+    MatCheckboxModule
+  ],
   providers: [AppDBService, ToastService],
   bootstrap: [NavbarComponent],
 })

@@ -13,7 +13,6 @@
 }
 
 h1 {
-  color: #162b66;
   font: bold 4em Helvetica, sans-serif;
   margin-right: 35%;
   margin-left: 35%;
@@ -32,6 +31,10 @@ mat-card {
 
   mat-form-field {
     width: 40%;
+  }
+
+  mat-checkbox {
+    margin-bottom: 20px;
   }
 
   margin-left: 10%;

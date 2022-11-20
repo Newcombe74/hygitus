@@ -29,9 +29,6 @@ export class UserAccountComponent {
   preferencesFormGroup!: FormGroup;
   passwordFormGroup!: FormGroup;
 
-  minDOBDate: Date;
-  maxDOBDate: Date;
-
   hidePassword = true;
   hideNewPassword = true;
   hideConfirmPassword = true;
@@ -53,10 +50,6 @@ export class UserAccountComponent {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)
     );
-
-    const currentYear = new Date().getFullYear();
-    this.minDOBDate = new Date(currentYear - 100, 0, 1);
-    this.maxDOBDate = new Date();
   }
 
   ngOnInit() {
@@ -75,9 +68,6 @@ export class UserAccountComponent {
       postcodeCtrl: [{ value: user.postcode, disabled: true }, Validators.required],
     });
     this.preferencesFormGroup = this._formBuilder.group({
-      enviroScoreCtrl: [{ value: user.enviroScore, disabled: true }, Validators.required],
-      socialScoreCtrl: [{ value: user.socialScore, disabled: true }, Validators.required],
-      governScoreCtrl: [{ value: user.governScore, disabled: true }, Validators.required],
       privateCtrl: [{ value: user.private, disabled: true }, Validators.required],
       notificationsCtrl: [{ value: user.notifications, disabled: true }, Validators.required],
       newsletterCtrl: [{ value: user.newsletter, disabled: true }, Validators.required],
@@ -111,9 +101,6 @@ export class UserAccountComponent {
       addressLineTwo: contactInfoCtrls['addressLineTwoCtrl'].value,
       postcode: contactInfoCtrls['postcodeCtrl'].value,
 
-      enviroScore: preferencesCtrls['enviroScoreCtrl'].value,
-      socialScore: preferencesCtrls['socialScoreCtrl'].value,
-      governScore: preferencesCtrls['governScoreCtrl'].value,
       private: preferencesCtrls['privateCtrl'].value,
       notifications: preferencesCtrls['notificationsCtrl'].value,
       newsletter: preferencesCtrls['newsletterCtrl'].value,
@@ -197,9 +184,6 @@ export class UserAccountComponent {
       postcodeCtrl: [{ value: user.postcode, disabled: true }, Validators.required],
     });
     this.preferencesFormGroup = this._formBuilder.group({
-      enviroScoreCtrl: [{ value: user.enviroScore, disabled: true }, Validators.required],
-      socialScoreCtrl: [{ value: user.socialScore, disabled: true }, Validators.required],
-      governScoreCtrl: [{ value: user.governScore, disabled: true }, Validators.required],
       privateCtrl: [{ value: user.private, disabled: true }, Validators.required],
       notificationsCtrl: [{ value: user.notifications, disabled: true }, Validators.required],
       newsletterCtrl: [{ value: user.newsletter, disabled: true }, Validators.required],
