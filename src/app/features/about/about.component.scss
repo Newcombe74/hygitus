@@ -1,7 +1,58 @@
 .header {
   padding-top: 1em;
-  padding-right: 6em;
-  padding-left: 6em;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .hygitus-logo {
+    width: 40%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.gods-container {
+  display: contents;
+  flex-direction: column;
+  padding-left: 20%;
+  padding-right: 20%;
+
+  .hygieia {
+    float: left;
+    text-align: left;
+    padding-left: 100px;
+    width: 40%;
+
+    .gods-content {
+      padding-top: 10px;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+    }
+    img {
+      width: 100px;
+    }
+  }
+
+  .plutus {
+    float: right;
+    text-align: right;
+    padding-right: 100px;
+    width: 40%;
+
+    .gods-content {
+      padding-top: 10px;
+      float: right;
+      text-align: right;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    img {
+      width: 100px;
+    }
+  }
 }
 
 h1 {
@@ -19,7 +70,7 @@ h3 {
 
 mat-card {
   width: 80%;
-  margin: 50px auto 10px auto;
+  margin: 30px auto 10px auto;
 }
 
 article {
@@ -38,6 +89,7 @@ article {
   width: 30%;
   padding: 1em;
   margin-bottom: 1em;
+  text-align: right;
   background: #fff;
   box-sizing: border-box;
 }
@@ -45,7 +97,10 @@ article {
 .container {
   display: flex;
   width: 100%;
+  padding-top: 40px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
+  margin-left: auto;
+  margin-right: auto;
 }
