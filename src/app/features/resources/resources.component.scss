@@ -22,6 +22,16 @@ a {
 
   mat-card-title {
     margin-top: 10%;
-    font-size:xx-large;
+    font-size: xx-large;
   }
+}
+mat-card-content {
+  opacity: 0;
+}
+
+.grid-card:hover > mat-card-content {
+  opacity: 1;
+}
+.grid-card:hover {
+  filter: saturate(0.5);
 }
