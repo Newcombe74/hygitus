@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { initializeApp } from 'firebase/app';
+import { User } from 'src/db/db';
+import { AuthenticationService } from './core/services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,11 @@ import { initializeApp } from 'firebase/app';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor() {
+  currentUser!: User;
+
+  constructor(
+    private authenticationService: AuthenticationService
+  ) {
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,5 +29,10 @@ export class AppComponent {
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+
+
+    this.authenticationService.currentUser.subscribe(
+      (x) => (this.currentUser = x)
+    );
   }
 }

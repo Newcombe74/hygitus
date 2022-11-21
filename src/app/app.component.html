@@ -10,7 +10,7 @@
   <mat-drawer-content>
     <router-outlet></router-outlet>
 
-    <div class="message-fab">
+    <div class="message-fab" *ngIf="currentUser">
       <button
         mat-fab
         color="primary"
